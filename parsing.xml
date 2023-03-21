@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shoes>
+	<shoe brand="Nike">
+		<air_force1>
+            <size type="US">8.5</size>
+            <size type="US">9.5</size>
+		</air_force1>
+		<air_jordan>
+			<model>jordan1</model>
+		</air_jordan>
+		<nike_zoom>
+			<model>nike zoom fly3</model> 
+		</nike_zoom>
+		<curry>
+			<model>curry3</model>
+		</curry>
+		<lebron>
+			<model>lebron12</model>
+		</lebron>
+		<harden>
+			<model>harden vol3</model>
+		</harden>
+	</shoe>
+	<shoe brand="Adidas">
+		<sneaker>
+            <size type="US">10.5</size>				
+		</sneaker>
+	</shoe>
+
+	<shoe brand ="Vans">
+		<vans_classic>
+			<size type="US">8</size>
+		</vans_classic>
+		<vans_sneakers>
+			<size type="US">8.5</size>
+		</vans_sneakers>
+	</shoe>
+	<shoe brand="New Balance">
+		<sneakers>
+			<size type="US">10</size>
+		</sneakers>
+	</shoe>
+	<shoe brand="Skechers">
+		<arch_fit_stretch>
+			<size type="US">8</size>
+		</arch_fit_stretch>
+	</shoe>
+</Shoes>

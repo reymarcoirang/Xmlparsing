@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Shoes</h2>
+
+    <button type="button" onclick="loadXMLDoc()">Show</button>
+    <hr>
+    <div id="xmlConnections">
+        
+    </div>
+
+    <script>
+        function loadXMLDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    createList(this);
+                }
+            };
+            xmlhttp.open("GET", "parsing.xml", true);
+            xmlhttp.send();
+        }
+        
+        function createList(xml) {
+            var i, j, k, xmlDoc, txt;
+            
+            // Actual XML File Object mode
+            xmlDoc = xml.responseXML; 
+
+            var titles = xmlDoc.getElementsByTagName('Shoes')[0];
+
+
+            txt='';
+            
+            // Children
+            for (i = 0; i < titles.children.length; i++) {
+                txt += `<h1>${titles.children[i].getAttribute('brand')}</h1>`;
+                for (j = 0; j < titles.children[i].children.length; j++) {
+                    txt += 
+                    `
+                    <ul>
+                        <li><h3>${titles.children[i].children[j].tagName}</h3>
+                    
+                    `;
+                    for (k = 0; k < titles.children[i].children[j].children.length; k++) {
+                        txt += 
+                        `
+                                <ul>
+                                    <li>${titles.children[i].children[j].children[k].tagName} - ${titles.children[i].children[j].children[k].childNodes[0].nodeValue}</li>
+                                </ul>
+
+
+                        `;
+
+                    
+                        }
+                        txt += 
+                    `    
+                            </li>
+                        </ul>
+                        
+                    `;
+                } 
+
+            document.getElementById("xmlConnections").innerHTML = txt;
+        }
+    }
+    </script>
+</body>
+</html>
